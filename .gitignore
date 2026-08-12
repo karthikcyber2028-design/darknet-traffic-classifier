@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+*.log
+*.pid
+
+# keep only the essential trained bundles (the *_best.joblib) on disk in git
+models/**/*_compare_*.joblib
+models/**/*_final_*.joblib
+models/**/*_smoke_*.joblib
+models/**/*.json
+!models/**/*_best.joblib

@@ -1,0 +1,12 @@
+{
+  "target": "label4",
+  "model": "rf",
+  "tag": "compare",
+  "accuracy": 1.0,
+  "n_features": 58,
+  "n_test_samples": 800,
+  "precision_macro": 1.0,
+  "recall_macro": 1.0,
+  "f1_macro": 1.0,
+  "f1_weighted": 1.0
+}

@@ -1,0 +1,14 @@
+               precision    recall  f1-score   support
+
+        Audio       0.15      0.17      0.15       109
+     Browsing       0.11      0.12      0.12       112
+         Chat       0.17      0.17      0.17       111
+        Email       0.16      0.19      0.17       106
+File_Transfer       0.10      0.08      0.09       100
+          P2P       0.18      0.04      0.07        46
+        Video       0.09      0.10      0.10       113
+         VoIP       0.12      0.13      0.12       103
+
+     accuracy                           0.13       800
+    macro avg       0.14      0.12      0.12       800
+ weighted avg       0.13      0.13      0.13       800

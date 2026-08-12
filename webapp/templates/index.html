@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darknet Traffic Classifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">D</div>
+      <div>
+        <h1>Darknet Traffic Classifier</h1>
+        <p class="subtitle">Tor / VPN / darknet flow classification &middot; CIC-Darknet2020</p>
+      </div>
+    </div>
+    <div class="badges">
+      <span id="data-badge" class="badge badge-warn">loading…</span>
+    </div>
+  </header>
+
+  <nav>
+    <button class="tab active" data-tab="predict">Predict</button>
+    <button class="tab" data-tab="csv">Batch CSV</button>
+    <button class="tab" data-tab="analytics">Analytics</button>
+    <button class="tab" data-tab="compare">Model Comparison</button>
+  </nav>
+
+  <main>
+    <!-- ============ PREDICT ============ -->
+    <section id="tab-predict" class="tab-panel active">
+      <div class="card controls">
+        <label>Target
+          <select id="target"></select>
+          <small id="target-desc"></small>
+        </label>
+        <label>Model
+          <select id="model"></select>
+        </label>
+        <button id="btn-load-sample" class="btn ghost">Load random sample</button>
+        <span id="sample-truth" class="truth"></span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-head">
+            <h2>Flow features</h2>
+            <button id="btn-reset" class="btn ghost sm">Reset to defaults</button>
+          </div>
+          <div id="feature-form" class="feature-form"><p class="muted">Select a target and model to load features.</p></div>
+        </div>
+        <div class="card">
+          <h2>Prediction</h2>
+          <div id="result-box" class="result-box">
+            <p class="muted">Fill the features and click <b>Predict</b>.</p>
+          </div>
+          <button id="btn-predict" class="btn primary big" disabled>Predict</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSV ============ -->
+    <section id="tab-csv" class="tab-panel">
+      <div class="card controls">
+        <label>Target
+          <select id="csv-target"></select>
+        </label>
+        <label>Model
+          <select id="csv-model"></select>
+        </label>
+        <label class="file">
+          <input type="file" id="csv-file" accept=".csv">
+          <span>Choose flows CSV…</span>
+        </label>
+        <button id="btn-csv-run" class="btn primary" disabled>Run classification</button>
+      </div>
+      <div class="card">
+        <h2>Result summary</h2>
+        <div id="csv-summary" class="result-box"><p class="muted">Upload a CSV of flow records to classify them in bulk.</p></div>
+        <div id="csv-table-wrap" class="table-wrap hidden"></div>
+      </div>
+    </section>
+
+    <!-- ============ ANALYTICS ============ -->
+    <section id="tab-analytics" class="tab-panel">
+      <div class="card controls">
+        <label>Target
+          <select id="an-target"></select>
+        </label>
+        <label>Model
+          <select id="an-model"></select>
+        </label>
+      </div>
+      <div id="an-content"><p class="muted">Select a target and model to view evaluation details.</p></div>
+    </section>
+
+    <!-- ============ COMPARE ============ -->
+    <section id="tab-compare" class="tab-panel">
+      <div class="card">
+        <h2>Cross-model comparison</h2>
+        <div id="compare-wrap" class="table-wrap"><p class="muted">Loading…</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Darknet Traffic Classification from Tor Network</span>
+    <span id="dataset-label"></span>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
