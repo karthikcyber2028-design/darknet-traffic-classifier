@@ -113,6 +113,7 @@ def api_status():
         "model_help": {
             "rf": "Random Forest",
             "gb": "Histogram Gradient Boosting",
+            "xgb": "XGBoost",
             "lr": "L2 Logistic Regression",
         },
         "dataset_source": "real" if real else "synthetic",

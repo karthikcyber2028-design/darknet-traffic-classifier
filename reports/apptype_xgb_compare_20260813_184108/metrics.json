@@ -1,0 +1,12 @@
+{
+  "target": "apptype",
+  "model": "xgb",
+  "tag": "compare",
+  "accuracy": 0.135625,
+  "n_features": 58,
+  "n_test_samples": 1600,
+  "precision_macro": 0.13616978438163024,
+  "recall_macro": 0.13288264085949258,
+  "f1_macro": 0.13345695099303762,
+  "f1_weighted": 0.1346122733400901
+}

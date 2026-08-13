@@ -1,0 +1,12 @@
+{
+  "target": "label4",
+  "model": "lr",
+  "tag": "compare",
+  "accuracy": 0.99875,
+  "n_features": 58,
+  "n_test_samples": 1600,
+  "precision_macro": 0.9987562189054726,
+  "recall_macro": 0.99875,
+  "f1_macro": 0.9987499921874512,
+  "f1_weighted": 0.9987499921874512
+}

@@ -4,12 +4,9 @@ __pycache__/
 *.log
 *.pid
 
-# keep only the essential trained bundles (the *_best.joblib) on disk in git
-models/**/*_compare_*.joblib
-models/**/*_final_*.joblib
-models/**/*_smoke_*.joblib
+# trained model artifacts are generated at build/deploy time, not committed
+models/**/*.joblib
 models/**/*.json
-!models/**/*_best.joblib
 
 webapp/tunnel_url.txt
 webapp/LIVE_URL.txt

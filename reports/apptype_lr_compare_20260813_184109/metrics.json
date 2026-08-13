@@ -1,0 +1,12 @@
+{
+  "target": "apptype",
+  "model": "lr",
+  "tag": "compare",
+  "accuracy": 0.135625,
+  "n_features": 58,
+  "n_test_samples": 1600,
+  "precision_macro": 0.13650339074533258,
+  "recall_macro": 0.18006127462194088,
+  "f1_macro": 0.12371055927647226,
+  "f1_weighted": 0.11560725037940141
+}

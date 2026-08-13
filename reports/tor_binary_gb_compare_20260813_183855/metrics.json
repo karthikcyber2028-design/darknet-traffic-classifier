@@ -1,0 +1,13 @@
+{
+  "target": "tor_binary",
+  "model": "gb",
+  "tag": "compare",
+  "accuracy": 1.0,
+  "n_features": 58,
+  "n_test_samples": 1600,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "roc_auc": 1.0,
+  "average_precision": 1.0
+}

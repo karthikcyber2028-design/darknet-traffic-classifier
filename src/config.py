@@ -14,7 +14,7 @@ TOP_K_FEATURES = 60
 MIN_TRAIN_ROWS = 200
 
 TARGETS = ["tor_binary", "darknet_binary", "label4", "apptype"]
-MODELS = ["rf", "gb", "lr"]
+MODELS = ["rf", "gb", "xgb", "lr"]
 DEFAULT_TARGET = "tor_binary"
 
 NON_FEATURE_COLUMNS = [

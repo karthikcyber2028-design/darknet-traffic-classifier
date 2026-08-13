@@ -1,0 +1,12 @@
+{
+  "target": "apptype",
+  "model": "rf",
+  "tag": "compare",
+  "accuracy": 0.1425,
+  "n_features": 58,
+  "n_test_samples": 1600,
+  "precision_macro": 0.14430012318249663,
+  "recall_macro": 0.1698402841114185,
+  "f1_macro": 0.13925716719567705,
+  "f1_weighted": 0.13358755559616553
+}

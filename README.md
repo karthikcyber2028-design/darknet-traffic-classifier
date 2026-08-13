@@ -2,8 +2,8 @@
 
 Classifies network flow records into Tor / darknet traffic vs benign traffic using
 supervised machine learning. Trained on the [CIC-Darknet2020](https://www.unb.ca/cic/datasets/darknet2020.html)
-dataset format (CICFlowMeter features) with Random Forest, HistGradientBoosting and
-Logistic Regression baselines.
+dataset format (CICFlowMeter features) with Random Forest, HistGradientBoosting,
+XGBoost and Logistic Regression baselines.
 
 ## Tasks (targets)
 
@@ -35,7 +35,7 @@ demo dataset** so the whole pipeline can be exercised without the real data. Use
 ```powershell
 .\.venv\Scripts\python.exe main.py info
 .\.venv\Scripts\python.exe main.py train --target tor_binary --model rf
-.\.venv\Scripts\python.exe main.py train --data data\Darknet.csv --target label4 --model gb
+.\.venv\Scripts\python.exe main.py train --data data\Darknet.csv --target label4 --model xgb
 .\.venv\Scripts\python.exe main.py compare --quick            # all targets x all models
 .\.venv\Scripts\python.exe main.py predict --csv flows.csv --out predictions.csv
 .\.venv\Scripts\python.exe main.py synth --n 8000             # demo data
@@ -45,6 +45,9 @@ demo dataset** so the whole pipeline can be exercised without the real data. Use
 matrix, ROC/PR curves, and feature-importance plot under `reports/`. `predict` loads
 the most recent bundle (or one you pass with `--model`) and appends `prediction` and
 probability columns.
+
+Trained model artifacts are **not committed** to git (they are regenerated at
+deploy time by `main.py compare --quick`, see `render.yaml` / `Dockerfile`).
 
 ## Web app
 
@@ -58,7 +61,7 @@ A Flask web app (`webapp/`) wraps the trained models with an interactive UI:
 Features:
 
 - **Predict** – choose a target (`tor_binary`, `darknet_binary`, `label4`, `apptype`)
-  and model (RF / Gradient Boosting / LR), edit the flow features (defaults = training
+  and model (RF / Gradient Boosting / XGBoost / LR), edit the flow features (defaults = training
   medians), or load a random sample row, and get a prediction with probabilities.
 - **Batch CSV** – upload a CSV of flow records and classify them all at once.
 - **Analytics** – per target/model: accuracy, F1, ROC-AUC, confusion matrix,
@@ -72,7 +75,7 @@ Set `FLASK_DEBUG=0` to run without the auto-reloader/debugger.
 1. **Loading** – robust header normalization, label/type column detection.
 2. **Preprocessing** – drop non-numeric / inf, drop high-missing and constant columns,
    drop correlated columns, median imputation, optional top-K mutual-information selection.
-3. **Modeling** – RF, HistGradientBoosting, L2 Logistic Regression (stratified split,
+3. **Modeling** – RF, HistGradientBoosting, XGBoost, L2 Logistic Regression (stratified split,
    balanced classes).
 4. **Evaluation** – accuracy, F1 / precision / recall, ROC-AUC, AP, confusion matrix,
    classification report.

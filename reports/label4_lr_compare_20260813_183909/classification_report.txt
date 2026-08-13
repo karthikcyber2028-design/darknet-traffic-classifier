@@ -1,0 +1,10 @@
+              precision    recall  f1-score   support
+
+         tor       1.00      0.99      1.00       400
+         vpn       1.00      1.00      1.00       400
+      nontor       1.00      1.00      1.00       400
+      nonvpn       1.00      1.00      1.00       400
+
+    accuracy                           1.00      1600
+   macro avg       1.00      1.00      1.00      1600
+weighted avg       1.00      1.00      1.00      1600
