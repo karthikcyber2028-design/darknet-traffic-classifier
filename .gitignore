@@ -10,3 +10,7 @@ models/**/*_final_*.joblib
 models/**/*_smoke_*.joblib
 models/**/*.json
 !models/**/*_best.joblib
+
+webapp/tunnel_url.txt
+webapp/LIVE_URL.txt
+
